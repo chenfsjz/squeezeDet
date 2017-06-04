@@ -75,6 +75,7 @@ class SqueezeDetPlus(ModelSkeleton):
 
     num_output = mc.ANCHOR_PER_GRID * (mc.CLASSES + 1 + 4)
     self.preds = self._conv_layer(
+        #the anchor_per_grid will be 9,because the size of filter of this layer is 3
         'conv12', dropout11, filters=num_output, size=3, stride=1,
         padding='SAME', xavier=False, relu=False, stddev=0.0001)
 
